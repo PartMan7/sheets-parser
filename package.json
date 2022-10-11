@@ -1,0 +1,28 @@
+{
+  "name": "sheets-parser",
+  "version": "1.0.0",
+  "description": "Parsing module for effortless Sheets-to-data conversion .",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PartMan7/sheets-parser.git"
+  },
+  "keywords": [
+    "googleapis",
+    "googlesheets",
+    "sheets"
+  ],
+  "author": "PartMan7",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PartMan7/sheets-parser/issues"
+  },
+  "homepage": "https://github.com/PartMan7/sheets-parser#readme",
+  "dependencies": {
+    "@googleapis/sheets": "^2.0.1"
+  }
+}
