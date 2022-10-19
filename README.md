@@ -30,15 +30,27 @@ const sheetsParser = require('sheets-parser')();
 
 Do note that you can also supply an OAuth2 client instead of an API key to the parser - it'll still work!
 
+
 ## Using the Parser
 
 Once you have the sheetsParser client ready, you can start using it straight away! Currently, sheetsParser has two available methods:
 
-* `sheetsParser.getCollections(sheetId: String)`: Returns a promise that resolves with a list of all available [collections](#collections) in the spreadsheet.
+* `sheetsParser.getCollections(sheetId: String)`: Returns a promise that resolves with a list of all available collections in the spreadsheet.
 * `sheetsParser.getDataFromSheet(sheetId: String, collections?: [String], mapping?: mapFunction)`: Returns a promise that resolves with the data requested.
+
+
+## Database Layout
+
+Please refer to [this file](/DATABASE.md) for details on how databases are formatted.
+
 
 ## Contributing and Issues
 
 If you have any issues, please open an issue on this repository! I check on my projects on a daily basis, so I should get back to you within a day or two.
 
 If you'd like to contribute to the repository, please open a pull request - I'll be going over them manually. Please stick to existing styling, and feel free to ask me if there's something you're unsure about!
+
+
+## Planned features
+
+* Add in write methods for users with an API client (as opposed to a simple API key).
