@@ -11,7 +11,7 @@ require('sheets-parser')(API_KEY).getDataFromSheet(SHEET_ID).then(res => console
 
 So, why use sheets-parser if it's read-only? The simplest answer - you can now deploy public read-only databases for larger datasets while keeping with Google's advanced permissions API to restrict who can manually edit stuff, and since it's in a Google Sheet, you don't need to restrict it to programmers.
 
-As an example, check out this [Pokémon GO Database](https://docs.google.com/spreadsheets/d/1cSm11AfVmMrRIAxDzzCc_G7mFjtIYY0rXRRweZEyEyo/edit#gid=668259038), maintained by the staff of the Pokémon GO chatroom on Pokémon Showdown (shoutouts Mex for their efforts). This resource is updated regularly with no programming knowledge, and is hard to mess up - while anyone can simply read and use this data with a single line of code!
+As an example, check out this [Pokémon GO Database](https://docs.google.com/spreadsheets/d/1cSm11AfVmMrRIAxDzzCc_G7mFjtIYY0rXRRweZEyEyo), maintained by the staff of the Pokémon GO chatroom on Pokémon Showdown (shoutouts Mex for their efforts). This resource is updated regularly with no programming knowledge, and is hard to mess up - while anyone can simply read and use this data with a single line of code!
 
 ## Configuration and Usage
 
@@ -30,6 +30,7 @@ const sheetsParser = require('sheets-parser')();
 
 Do note that you can also supply an OAuth2 client instead of an API key to the parser - it'll still work!
 
+
 ## Using the Parser
 
 Once you have the sheetsParser client ready, you can start using it straight away! Currently, sheetsParser has two available methods:
@@ -37,9 +38,17 @@ Once you have the sheetsParser client ready, you can start using it straight awa
 * `sheetsParser.getCollections(sheetId: String)`: Returns a promise that resolves with a list of all available collections in the spreadsheet.
 * `sheetsParser.getDataFromSheet(sheetId: String, collections?: [String], mapping?: mapFunction)`: Returns a promise that resolves with the data requested.
 
+
 ## Database Layout
 
-Please refer to [this link](/DATABASE.md) for details on how databases are formatted.
+Please refer to [this file](/DATABASE.md) for details on how databases are formatted.
+
+
+## Contributing and Issues
+
+If you have any issues, please open an issue on this repository! I check on my projects on a daily basis, so I should get back to you within a day or two.
+
+If you'd like to contribute to the repository, please open a pull request - I'll be going over them manually. Please stick to existing styling, and feel free to ask me if there's something you're unsure about!
 
 
 ## Planned features
