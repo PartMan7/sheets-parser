@@ -34,5 +34,14 @@ Do note that you can also supply an OAuth2 client instead of an API key to the p
 
 Once you have the sheetsParser client ready, you can start using it straight away! Currently, sheetsParser has two available methods:
 
-* `sheetsParser.getCollections(sheetId: String)`: Returns a promise that resolves with a list of all available [collections](#collections) in the spreadsheet.
+* `sheetsParser.getCollections(sheetId: String)`: Returns a promise that resolves with a list of all available collections in the spreadsheet.
 * `sheetsParser.getDataFromSheet(sheetId: String, collections?: [String], mapping?: mapFunction)`: Returns a promise that resolves with the data requested.
+
+## Database Layout
+
+Please refer to [this link](/DATABASE.md) for details on how databases are formatted.
+
+
+## Planned features
+
+* Add in write methods for users with an API client (as opposed to a simple API key).

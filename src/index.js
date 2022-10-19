@@ -17,7 +17,7 @@ function sheetParser (auth_key) {
 	async function getCollections (spreadsheetId) {
 		if (arguments.length !== 1) throw new Error('getCollections accepts only 1 parameter');
 		const ranges = await getRanges(spreadsheetId);
-		return ranges.filter(range => range.startsWith('#')).map(range => range.substr(1));
+		return ranges.filter(range => range.startsWith('#'));
 	}
 
 	async function getDataFromSheet (spreadsheetId, givenRanges, mapping) {
