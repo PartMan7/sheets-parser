@@ -15,13 +15,13 @@ function sheetParser (auth_key) {
 	}
 
 	async function getCollections (spreadsheetId) {
-		if (arguments.length !== 1) throw new Error('getCollections accepts only 1 parameter');
+		if (arguments.length !== 1) throw new TypeError('getCollections accepts only 1 parameter');
 		const ranges = await getRanges(spreadsheetId);
 		return ranges.filter(range => range.startsWith('#'));
 	}
 
 	async function getDataFromSheet (spreadsheetId, givenRanges, mapping) {
-		if (arguments.length < 1 || arguments.length > 3) throw new Error('getDataFromSheet accepts only 1-3 parameters');
+		if (arguments.length < 1 || arguments.length > 3) throw new TypeError('getDataFromSheet accepts only 1-3 parameters');
 		const ranges = await getRanges(spreadsheetId);
 		if (givenRanges && !Array.isArray(givenRanges)) givenRanges = [givenRanges];
 		const extraRange = givenRanges?.find(range => !ranges.includes(range));
@@ -35,15 +35,14 @@ function sheetParser (auth_key) {
 			try {
 				const parser = generateParser(headers);
 				let data = sheet.map(parser);
-				if (typeof mapping === 'function') data = data.map(mapping);
+				if (typeof mapping === 'function') data = data.map((value, index) => mapping(value, headers[index], res.data.valueRanges[i].range, index));
 				if (!headers[0].includes('_id')) stores.push(data); // Array-like
 				else stores.push(Object.fromEntries(data.map(doc => [doc._id, doc]))); // _id-based
 			} catch (err) {
-				throw new Error('Error parsing database');
+				throw new Error(`Error parsing database: ${err.message}`);
 			}
 		});
-		if (stores.length === 1) return Promise.resolve(stores[0]);
-		return Promise.resolve(Object.fromEntries(stores.map((store, index) => [finalRanges[index].replace(/^#/, ''), store])));
+		return Object.fromEntries(stores.map((store, index) => [finalRanges[index].replace(/^#/, ''), store]));
 	}
 	return { getCollections, getDataFromSheet };
 }
