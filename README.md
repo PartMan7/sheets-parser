@@ -11,7 +11,7 @@ require('sheets-parser')(API_KEY).getDataFromSheet(SHEET_ID).then(res => console
 
 So, why use sheets-parser if it's read-only? The simplest answer - you can now deploy public read-only databases for larger datasets while keeping with Google's advanced permissions API to restrict who can manually edit stuff, and since it's in a Google Sheet, you don't need to restrict it to programmers.
 
-As an example, check out this [Pokémon GO Database](https://docs.google.com/spreadsheets/d/1cSm11AfVmMrRIAxDzzCc_G7mFjtIYY0rXRRweZEyEyo), maintained by the staff of the Pokémon GO chatroom on Pokémon Showdown (shoutouts Mex for their efforts). This resource is updated regularly with no programming knowledge, and is hard to mess up - while anyone can simply read and use this data with a single line of code!
+As an example, check out this [Pokémon GO Database](https://docs.google.com/spreadsheets/d/1cSm11AfVmMrRIAxDzzCc_G7mFjtIYY0rXRRweZEyEyo), maintained by the staff of the Pokémon GO chatroom on Pokémon Showdown (shoutouts [ArnavChawla](https://github.com/Arnav01123) and Mex for their efforts!). This resource is updated regularly with no programming knowledge, and is hard to mess up - while anyone can simply read and use this data with a single line of code!
 
 ## Configuration and Usage
 
